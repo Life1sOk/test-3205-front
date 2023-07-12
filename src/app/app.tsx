@@ -10,17 +10,14 @@ import { DataType } from "../types/data";
 
 import { AppStyle } from "./app.style";
 
-// Создаем хашмап
+// Создаем хашмап для сохранения функции "abortHandler" js:28;
 const hash = new Map();
 
 function App() {
   const [data, setData] = useState<DataType[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Сабмит на сервер при успешной валидации.
   const findUserHandler = async (sendData: DataType) => {
-    // event.preventDefault();
-
     // Определяем аборт-контролер для каждого сабмита
     const controller = new AbortController();
 
@@ -29,7 +26,7 @@ function App() {
       controller.abort();
     };
 
-    // Если свойство "abort" существует в хашмапе - это значит, что сейчас все еще идет запрос на сервер. Достаем сохраненную функцию "abortHandler" и вызываем, таким образом она отменяет предыдущий(свой) запрос. И так-как мы будет запускать еще один запрос, нам нужно перезаписать нашу функцию "abortHandler";
+    // Если свойство "abort" существует в хашмапе - это значит, что сейчас идет предыдущий запрос на сервер. Достаем сохраненную функцию "abortHandler" (js: 32) и вызываем (js: 33), таким образом она отменяет предыдущий(свой) запрос. И так-как мы будет запускать еще один запрос, нам нужно перезаписать нашу функцию "abortHandler";
     // Если нет - записываем функцию "abortHandler";
     if (hash.has("abort")) {
       const prevRequestAbort = hash.get("abort");
