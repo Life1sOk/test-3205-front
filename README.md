@@ -1,4 +1,4 @@
-### Задание:
+# Задание:
 
 > Напишите приложение с одной страницей, на котором находится форма с двумя полями
 > email (обязательное) и number (опциональное)
@@ -12,10 +12,13 @@
 
 ## Инструменты:
 
-Front:
-_ React.js
-_ TypeScript
-_ Styled Components
-Back:
-_ Node.js
-\_ TyprScript
+### Front:
+
+- React.js;
+- TypeScript;
+- Styled Components;
+
+### Back:
+
+- Node.js;
+- TyprScript;
